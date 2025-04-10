@@ -1,3 +1,4 @@
+```mermaid
 erDiagram
 
   DEPARTAMENTO {
@@ -101,3 +102,4 @@ erDiagram
 
   ALUNO ||--o{ HIST_ESCOLAR : tem
   ALUNO ||--o{ TCC : apresenta
+```
