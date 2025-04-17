@@ -38,6 +38,64 @@ pip install pandas numpy supabase
 ---
 ```
 
+### 2. 🧬 Gerar os dados fictícios
+- Execute o gerador de dados para criar os arquivos .csv:
+python first_task.py
+- Os arquivos serão salvos automaticamente na pasta /data.
+
+### 3. ✅ Validar os dados (opcional)
+- Você pode rodar um validador automático para verificar:
+Duplicidade de chaves
+Integridade referencial
+Campos nulos ou inconsistentes
+python second_task.py
+
+### 4. 📄 Gerar comandos SQL e inserir no Supabase
+- Use o script abaixo para transformar os .csv em comandos INSERT INTO e executá-los no Supabase:
+python third_task.py
+Esse comando:
+Gera o arquivo insert_data.sql
+Executa os comandos via exec_sql (RPC) na instância do Supabase
+
+⚠️ Certifique-se de já ter criado as tabelas (via DDL) no Supabase antes de executar este passo.
+
+## 🧠 Consultas SQL
+O projeto foi desenhado para responder a diversos exercícios e desafios SQL, incluindo:
+- Mostrar o histórico escolar de um aluno
+- Listar TCCs e seus orientadores
+- Consultar disciplinas cursadas e os professores que lecionaram
+- Identificar coordenadores e departamentos
+- Consultas com JOIN, GROUP BY, HAVING, COALESCE, entre outros
+
+
+## 🗂️ Estrutura do Projeto
+```
+├── data/                      # Arquivos CSV com os dados gerados
+│   ├── alunos.csv
+│   ├── cursos.csv
+│   ├── disciplinas.csv
+│   ├── professores.csv
+│   ├── departamentos.csv
+│   ├── tccs.csv
+│   ├── tcc_aluno.csv
+│   └── hist_escolar.csv
+├── first_task.py             # Gerador de dados fictícios
+├── second_task.py            # Validador de dados e integridade
+├── third_task.py             # Gerador de INSERTS e integrador com Supabase
+├── insert_data.sql           # Comandos SQL gerados automaticamente
+├── estrutura_ddl.sql         # Script para criação das tabelas (DDL)
+├── mermaid.md                # Diagrama MER em sintaxe Mermaid.js
+└── diagramas/                # Imagens PNG com o modelo relacional
+```
+### 📌 Observações
+Todos os dados são fictícios e gerados aleatoriamente.
+
+O projeto pode ser adaptado facilmente para outras entidades ou domínios.
+
+Ideal para estudos, apresentações acadêmicas ou testes de sistemas acadêmicos.
+
+Você pode ajustar a quantidade de registros gerados modificando os parâmetros nos scripts Python.
+
 ```mermaid
 erDiagram
     DEPARTAMENTOS ||--o{ PROFESSORES : "possui"
