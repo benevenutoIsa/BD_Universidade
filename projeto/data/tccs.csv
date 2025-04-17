@@ -1,0 +1,21 @@
+id,titulo,professor_id,data_inicio,data_conclusao,nota,status
+1,Análise sobre Banco de Dados em Sistemas Distribuídos,5,2024-08-29,2024-11-21,8.3,Concluído
+2,Análise sobre Algoritmos em Educação,5,2024-08-14,,,Em Andamento
+3,Análise sobre Sistemas em Saúde,10,2024-09-05,,,Em Andamento
+4,Análise sobre Redes em Saúde,4,2024-09-01,,,Em Andamento
+5,Análise sobre Algoritmos em Ambientes Web,5,2024-09-29,,,Em Andamento
+6,Análise sobre IA em Saúde,4,2024-09-13,,,Em Andamento
+7,Análise sobre Redes em Ambientes Web,5,2024-08-24,,,Em Andamento
+8,Análise sobre Algoritmos em Saúde,6,2024-05-03,2024-07-02,8.1,Concluído
+9,Análise sobre IA em Educação,1,2024-06-03,,,Em Andamento
+10,Análise sobre IA em Sistemas Distribuídos,7,2024-08-18,2024-11-19,7.0,Concluído
+11,Análise sobre Sistemas em Ambientes Web,8,2024-07-15,,,Em Andamento
+12,Análise sobre Redes em Educação,2,2024-04-26,,,Em Andamento
+13,Análise sobre IA em Ambientes Web,6,2024-04-22,2024-07-22,9.4,Concluído
+14,Análise sobre Redes em Sistemas Distribuídos,7,2024-04-24,,,Em Andamento
+15,Análise sobre Banco de Dados em Ambientes Web,5,2024-09-03,,,Em Andamento
+16,Análise sobre Algoritmos em Sistemas Distribuídos,1,2024-05-26,,,Em Andamento
+17,Análise sobre Sistemas em Sistemas Distribuídos,7,2024-04-25,,,Em Andamento
+18,Análise sobre Banco de Dados em Saúde,5,2024-06-15,2024-09-18,9.8,Concluído
+19,Análise sobre Banco de Dados em Educação,5,2024-09-21,2025-01-19,7.2,Concluído
+20,Análise sobre Sistemas em Educação,7,2024-07-03,2024-10-21,6.3,Concluído
