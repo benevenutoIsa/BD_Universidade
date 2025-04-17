@@ -72,106 +72,83 @@ O banco de dados foi modelado utilizando um **Modelo Entidade-Relacionamento (ME
 
 ```mermaid
 erDiagram
-
-  DEPARTAMENTO {
-    int id PK
-    string nome
-    int chefe_id FK
-  }
-
-  PROFESSOR {
-    int id PK
-    string nome
-    string email
-    string telefone
-    date data_nascimento
-    decimal salario
-    int departamento_id FK
-    int curso_id FK
-  }
-
-  CURSO {
-    int id PK
-    string nome
-    int departamento_id FK
-    int coordenador FK
-    int disciplina_id FK
-  }
-
-  DISCIPLINA {
-    int id PK
-    string nome
-    string codigo
-    int carga_horaria
-    int departamento_id FK
-    int curso_id FK
-    int professor_id FK
-    int semestre
-    boolean obrigatoria
-  }
-
-  ALUNO {
-    int id PK
-    string nome
-    string matricula
-    string email
-    string telefone
-    date data_nascimento
-    char sexo
-    int curso_id FK
-    int disciplina_id FK
-  }
-
-  HIST_DISCIPLINAS {
-    int professor_id PK, FK
-    int disciplina_id PK, FK
-    int curso_id
-    int departamento_id
-    int semestre
-    int ano PK
-  }
-
-  HIST_ESCOLAR {
-    int aluno_id PK, FK
-    int disciplina_id PK, FK
-    int professor_id
-    string semestre PK
-    decimal nota
-    string situacao
-  }
-
-  TCC {
-    int id PK
-    string titulo
-    int aluno_id FK
-    int professor_id FK
-    date data_inicio
-    date data_fim
-    decimal nota
-    string status
-    text projeto
-  }
-
-  %% RELACIONAMENTOS
-
-  DEPARTAMENTO ||--o{ PROFESSOR : possui
-  DEPARTAMENTO ||--o{ CURSO : oferece
-  DEPARTAMENTO ||--o{ DISCIPLINA : organiza
-
-  CURSO ||--o{ DISCIPLINA : contem
-  CURSO ||--o{ ALUNO : possui
-  CURSO ||--o{ PROFESSOR : pertence
-  CURSO ||--o{ HIST_DISCIPLINAS : referencia
-
-  DISCIPLINA ||--o{ HIST_DISCIPLINAS : esta_em
-  DISCIPLINA ||--o{ HIST_ESCOLAR : registrada_em
-  DISCIPLINA ||--o{ ALUNO : associada
-  DISCIPLINA ||--|| PROFESSOR : ministrada_por
-
-  PROFESSOR ||--o{ HIST_DISCIPLINAS : ministra
-  PROFESSOR ||--o{ HIST_ESCOLAR : avalia
-  PROFESSOR ||--o{ TCC : orienta
-
-  ALUNO ||--o{ HIST_ESCOLAR : tem
-  ALUNO ||--o{ TCC : apresenta
+    DEPARTAMENTOS ||--o{ PROFESSORES : "possui"
+    DEPARTAMENTOS ||--o{ CURSOS : "possui"
+    DEPARTAMENTOS ||--o{ DISCIPLINAS : "oferece"
+    CURSOS ||--o{ ALUNOS : "matricula"
+    CURSOS }|--|{ DISCIPLINAS : "composto por"
+    ALUNOS }|--|{ TCCS : "desenvolve"
+    PROFESSORES ||--o{ TCCS : "orienta"
+    ALUNOS }|--o{ HIST_ESCOLAR : "possui"
+    DISCIPLINAS ||--o{ HIST_ESCOLAR : "registra"
+    PROFESSORES ||--o{ HIST_ESCOLAR : "leciona"
+    
+    DEPARTAMENTOS {
+        int id PK
+        varchar nome
+    }
+    
+    PROFESSORES {
+        int id PK
+        varchar nome
+        varchar email
+        varchar telefone
+        varchar area_conhecimento
+        decimal salario
+        int departamento_id FK
+    }
+    
+    CURSOS {
+        int id PK
+        varchar nome
+        int departamento_id FK
+    }
+    
+    DISCIPLINAS {
+        int id PK
+        varchar nome
+        int carga_horaria
+        int departamento_id FK
+    }
+    
+    ALUNOS {
+        int id PK
+        varchar nome
+        varchar email
+        varchar telefone
+        date nascimento
+        varchar cpf
+        int curso_id FK
+    }
+    
+    CURSO_DISCIPLINA {
+        int curso_id PK,FK
+        int disciplina_id PK,FK
+    }
+    
+    HIST_ESCOLAR {
+        serial id PK
+        int aluno_id FK
+        int disciplina_id FK
+        int professor_id FK
+        varchar semestre
+        int ano
+        decimal nota
+        varchar situacao
+    }
+    
+    TCCS {
+        int id PK
+        varchar titulo
+        int professor_id FK
+        date data_inicio
+        date data_conclusao
+        decimal nota
+        varchar status
+    }
+    
+    TCC_ALUNO {
+        int tcc_id PK,FK
+        int aluno_id PK,FK
+    }
 ```
