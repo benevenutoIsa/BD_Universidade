@@ -1,0 +1,32 @@
+Prezado Professor,
+
+Durante os últimos ajustes do projeto, percebemos que havíamos removido o campo chefe_id, o que acabou nos prejudicando na etapa final. Como estávamos com o prazo apertado e não queríamos atrasar a entrega, optamos por realizar os ajustes necessários utilizando comandos ALTER TABLE.
+
+Esperamos que o senhor possa considerar todo o desenvolvimento do projeto e os esforços aplicados até aqui.
+
+Atenciosamente,  
+Isabella e Mateus.
+
+ALTER TABLE departamentos ADD chefe_id INT;
+ALTER TABLE departamentos ADD CONSTRAINT fk_chefe FOREIGN KEY (chefe_id) REFERENCES professores(id);
+
+UPDATE departamentos d
+SET chefe_id = (
+    SELECT p.id
+    FROM professores p
+    WHERE p.departamento_id = d.id
+    ORDER BY p.id
+    LIMIT 1
+);
+
+ALTER TABLE cursos ADD coordenador_id INT;
+ALTER TABLE cursos ADD CONSTRAINT fk_coordenador FOREIGN KEY (coordenador_id) REFERENCES professores(id);
+
+UPDATE cursos c
+SET coordenador_id = (
+    SELECT p.id
+    FROM professores p
+    WHERE p.departamento_id = c.departamento_id
+    ORDER BY p.id
+    LIMIT 1
+);
