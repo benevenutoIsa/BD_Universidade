@@ -152,3 +152,4 @@ erDiagram
         int aluno_id PK,FK
     }
 ```
+![ERDiagram](https://github.com/benevenutoIsa/BD_Universidade/blob/main/ERdiagram_EDPlus.png)
